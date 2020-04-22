@@ -1,0 +1,7 @@
+rootProject.name = 'shopping'
+include 'shopping-cloud-service:shopping-config-service'
+include 'shopping-cloud-service:shopping-eureka-service'
+include 'shopping-cloud-service:shopping-zuul-service'
+include 'shopping-microservice:shopping-store-service'
+include 'shopping-microservice:shopping-user-service'
+include 'shopping-common:shopping-common-core'

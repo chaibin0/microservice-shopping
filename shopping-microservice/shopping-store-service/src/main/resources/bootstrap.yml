@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: storeservice
+  profiles:
+    active:
+      default
+server:
+  cloud:
+    config:
+      uri:
+        - http://localhost:8888

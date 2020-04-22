@@ -1,0 +1,10 @@
+server:
+  port: 8761
+eureka:
+  client:
+    registerWithEureka: false # 자신 등록 X
+    fetchRegistry: false  # 로컬캐싱 X
+  server:
+    waitTimeInMsWhenSyneEmpty: 5 # 요청 시간
+  serviceUrl:
+    defaultZone: http://localhost:8761

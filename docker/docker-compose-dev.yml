@@ -1,0 +1,35 @@
+version: '3'
+services:
+  shopping_config:
+    image: shopping/shopping-config
+    environment:
+      - "SPRING_PROFILES_ACTIVE=native"
+    ports:
+     - "8888:8888"
+  shopping_eureka:
+    image: shopping/shopping-eureka
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    ports:
+     - "8761:8761"
+  shopping_zuul:
+    image: shopping/shopping-zuul
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    ports:
+      - "5555:5555"
+  shopping_user:
+    image: shopping/shopping-user
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    ports:
+      - "8000:8000"
+  shopping_store:
+    image: shopping/shopping-store
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    ports:
+     - "8001:8001"
+
+
+
