@@ -1,0 +1,16 @@
+== 유저 정보 API
+요청
+include::{snippets}/get-member/curl-request.adoc[]
+
+response
+include::{snippets}/get-member/response-fields.adoc[]
+
+
+== 유저 등록 API
+요청
+include::{snippets}/register-member/curl-request.adoc[]
+
+request
+include::{snippets}/register-member/request-fields.adoc[]
+
+

@@ -3,18 +3,22 @@ package com.chaibin.shopping.model;
 import com.chaibin.shopping.controllers.core.member.MemberResponse;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
 @Getter
 @Setter
+@NoArgsConstructor
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    Long id;
+
     @Column
     String userId;
 
@@ -42,7 +46,7 @@ public class Member {
     public MemberResponse toMemberResponse() {
 
         MemberResponse response = MemberResponse.builder()
-                .id(this.userId)
+                .userId(this.userId)
                 .name(this.name)
                 .phone(this.phone)
                 .address(this.address)

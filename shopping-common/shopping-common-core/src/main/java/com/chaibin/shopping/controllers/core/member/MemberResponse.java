@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 public class MemberResponse {
 
-    String id;
+    String userId;
 
     String name;
 
@@ -15,8 +15,8 @@ public class MemberResponse {
     String address;
 
     @Builder
-    public MemberResponse(String id, String name, String phone, String address) {
-        this.id = id;
+    public MemberResponse(String userId, String name, String phone, String address) {
+        this.userId = userId;
         this.name = name;
         this.phone = phone;
         this.address = address;

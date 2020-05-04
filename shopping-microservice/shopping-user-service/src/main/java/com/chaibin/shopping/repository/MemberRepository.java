@@ -3,5 +3,11 @@ package com.chaibin.shopping.repository;
 import com.chaibin.shopping.model.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MemberRepository extends JpaRepository<Member, String> {
+import java.util.Optional;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+
+    Optional<Member> findByUserId(String userId);
+
+    Boolean existsByUserId(String userId);
 }
