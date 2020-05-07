@@ -8,4 +8,5 @@ spring:
           searchLocations:
             - classpath:config/storeservice
             - classpath:config/userservice
-#        searchLocations: file:///shopping-config-service/src/main/resources/config/storeservice
+
+#         searchLocations: file:///shopping-config-service/src/main/resources/config/storeservice

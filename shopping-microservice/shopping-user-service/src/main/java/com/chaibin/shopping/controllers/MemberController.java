@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @RestController
-@RequestMapping("v1/members")
+@RequestMapping("v1/users")
 public class MemberController {
 
     MemberService memberService;

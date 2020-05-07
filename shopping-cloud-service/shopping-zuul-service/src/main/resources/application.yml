@@ -11,10 +11,3 @@ eureka:
     waitTimeInMsWhenSyneEmpty: 5
   serviceUrl:
     defaultZone: http://localhost:8761/eureka
-
-zuul:
-  ignoredServices: '*'
-  prefix: /api
-  routes:
-    userservice: /user/**
-    storeservice: /store/**

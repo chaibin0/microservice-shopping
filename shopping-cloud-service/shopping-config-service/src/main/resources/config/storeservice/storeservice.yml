@@ -4,3 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/shopping-store?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
     password: root
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop

@@ -1,9 +1,6 @@
 spring:
   application:
     name: storeservice
-  profiles:
-    active:
-      default
 server:
   cloud:
     config:

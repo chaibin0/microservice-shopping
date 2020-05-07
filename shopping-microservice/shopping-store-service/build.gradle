@@ -42,7 +42,7 @@ jib {
 		tags = ["latest"]
 	}
 	container {
-		mainClass = 'com.chaibin.shopping.ShoppingCommonApplication'
+		mainClass = 'com.chaibin.shopping.ShoppingStoreApplication'
 		ports = ["8001"]
 	}
 }
