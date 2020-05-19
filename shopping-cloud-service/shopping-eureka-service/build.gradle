@@ -32,7 +32,7 @@ jib {
 		image = 'openjdk:8-jdk-alpine'
 	}
 	to {
-		image = 'shopping/shopping-eureka'
+		image = 'shopping/eureka'
 		tags = ["latest"]
 	}
 	container {

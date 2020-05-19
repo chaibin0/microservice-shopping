@@ -1,6 +1,6 @@
 package com.chaibin.shopping.repository;
 
-import com.chaibin.shopping.model.Member;
+import com.chaibin.shopping.models.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

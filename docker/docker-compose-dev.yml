@@ -1,55 +1,61 @@
 version: '3'
 services:
-  shopping_config:
+  config:
     image: shopping/shopping-config
+    build: ../gradlew
     environment:
-      - "SPRING_PROFILES_ACTIVE=native"
+      SPRING_PROFILES_ACTIVE: native
     ports:
      - "8888:8888"
-  shopping_eureka:
-    image: shopping/shopping-eureka
+  eureka:
+    image: shopping/eureka
     environment:
-      - "SPRING_PROFILES_ACTIVE=dev"
+      SPRING_PROFILES_ACTIVE: dev
     ports:
-     - "8761:8761"
-  shopping_zuul:
+      - "8761:8761"
+  zuul:
     image: shopping/shopping-zuul
     environment:
-      - "SPRING_PROFILES_ACTIVE=dev"
+      SPRING_PROFILES_ACTIVE: dev
     ports:
       - "5555:5555"
   shopping_user:
     image: shopping/shopping-user
     environment:
-      - "SPRING_PROFILES_ACTIVE=dev"
+      SPRING_PROFILES_ACTIVE: dev
     ports:
       - "8000:8000"
-  database-user:
+  mysql:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_DATABASE: 'shopping-user'
-      MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 'root'
-      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: shopping-user
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_HOST: database-user
     ports:
       - '3301:3306'
-  database-store:
-    image: mysql:8.0
-    restart: always
+  mongodb:
+    image: mongo
     environment:
-      MYSQL_DATABASE: 'shopping-store'
-      MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 'root'
-      MYSQL_ROOT_PASSWORD: 'root'
+      - MONGO_DATA_DIR=/var/lib/mongodb/data
+      - MONGO_LOG_DIR=/var/lib/mongodb/data
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=test
     ports:
-      - '3302:3306'
+      - '27017:27017'
   shopping_store:
     image: shopping/shopping-store
     environment:
-      - "SPRING_PROFILES_ACTIVE=dev"
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATA_MONGODB_URI: mongodb://root:root@mongodb:27017/test?authSource=admin
     ports:
      - "8001:8001"
+    depends_on:
+      - mongodb
+
 
 
 

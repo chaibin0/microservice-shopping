@@ -1,14 +1,14 @@
 package com.chaibin.shopping.services;
 
-import com.chaibin.shopping.controllers.core.member.MemberRequest;
-import com.chaibin.shopping.controllers.core.member.MemberResponse;
-import com.chaibin.shopping.model.Member;
+import com.chaibin.shopping.core.member.MemberRequestDto;
+import com.chaibin.shopping.core.member.MemberResponseDto;
+import com.chaibin.shopping.models.Member;
 
 public interface MemberService {
 
-    MemberResponse getMember(String id);
+    MemberResponseDto getMember(String id);
 
-    Member registerMember(MemberRequest request);
+    Member registerMember(MemberRequestDto request);
 
     boolean checkMember(String id);
 }

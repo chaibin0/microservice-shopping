@@ -1,9 +1,9 @@
 package com.chaibin.shopping.services;
 
-import com.chaibin.shopping.controllers.core.member.MemberRequest;
-import com.chaibin.shopping.controllers.core.member.MemberResponse;
+import com.chaibin.shopping.core.member.MemberRequestDto;
+import com.chaibin.shopping.core.member.MemberResponseDto;
 import com.chaibin.shopping.exceptions.MemberNotFoundException;
-import com.chaibin.shopping.model.Member;
+import com.chaibin.shopping.models.Member;
 import com.chaibin.shopping.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +17,14 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberResponse getMember(String id) {
+    public MemberResponseDto getMember(String id) {
 
         Member member = memberRepository.findByUserId(id).orElseThrow(() -> new MemberNotFoundException(id));
-        return member.toMemberResponse();
+        return toMemberResponse(member);
     }
 
     @Override
-    public Member registerMember(MemberRequest request) {
+    public Member registerMember(MemberRequestDto request) {
 
         Member newMember = Member.builder()
                 .userId(request.getUserId())
@@ -41,5 +41,16 @@ public class MemberServiceImpl implements MemberService {
     public boolean checkMember(String id) {
 
         return memberRepository.existsByUserId(id);
+    }
+
+    public MemberResponseDto toMemberResponse(Member member) {
+
+        MemberResponseDto response = MemberResponseDto.builder()
+                .userId(member.getUserId())
+                .name(member.getName())
+                .phone(member.getPhone())
+                .address(member.getAddress())
+                .build();
+        return response;
     }
 }

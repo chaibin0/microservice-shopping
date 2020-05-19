@@ -1,4 +1,4 @@
-package com.chaibin.shopping.model;
+package com.chaibin.shopping.models;
 
 import com.chaibin.shopping.common.StaticMember;
 import com.chaibin.shopping.repository.MemberRepository;

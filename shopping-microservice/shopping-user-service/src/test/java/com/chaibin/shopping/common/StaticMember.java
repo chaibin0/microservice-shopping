@@ -1,7 +1,7 @@
 package com.chaibin.shopping.common;
 
-import com.chaibin.shopping.controllers.core.member.MemberRequest;
-import com.chaibin.shopping.model.Member;
+import com.chaibin.shopping.core.member.MemberRequestDto;
+import com.chaibin.shopping.models.Member;
 
 
 public interface StaticMember {
@@ -21,7 +21,7 @@ public interface StaticMember {
             .phone("01000000002")
             .build();
 
-    MemberRequest MEMBER_REQUEST1 = MemberRequest.builder()
+    MemberRequestDto MEMBER_REQUEST1 = MemberRequestDto.builder()
             .userId("member1")
             .name("홍길동1")
             .password("password1")
@@ -29,7 +29,7 @@ public interface StaticMember {
             .phone("01000000001")
             .build();
 
-    MemberRequest MEMBER_REQUEST2 = MemberRequest.builder()
+    MemberRequestDto MEMBER_REQUEST2 = MemberRequestDto.builder()
             .userId("member2")
             .name("홍길동2")
             .password("password2")

@@ -1,6 +1,6 @@
-package com.chaibin.shopping.model;
+package com.chaibin.shopping.models;
 
-import com.chaibin.shopping.controllers.core.member.MemberResponse;
+import com.chaibin.shopping.core.member.MemberResponseDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,14 +43,5 @@ public class Member {
         this.address = address;
     }
 
-    public MemberResponse toMemberResponse() {
 
-        MemberResponse response = MemberResponse.builder()
-                .userId(this.userId)
-                .name(this.name)
-                .phone(this.phone)
-                .address(this.address)
-                .build();
-        return response;
-    }
 }

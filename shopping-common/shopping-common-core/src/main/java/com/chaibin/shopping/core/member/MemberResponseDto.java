@@ -1,10 +1,10 @@
-package com.chaibin.shopping.controllers.core.member;
+package com.chaibin.shopping.core.member;
 
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class MemberResponse {
+public class MemberResponseDto {
 
     String userId;
 
@@ -15,7 +15,7 @@ public class MemberResponse {
     String address;
 
     @Builder
-    public MemberResponse(String userId, String name, String phone, String address) {
+    public MemberResponseDto(String userId, String name, String phone, String address) {
         this.userId = userId;
         this.name = name;
         this.phone = phone;

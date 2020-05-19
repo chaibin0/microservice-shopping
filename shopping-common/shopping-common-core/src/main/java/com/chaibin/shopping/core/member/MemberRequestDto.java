@@ -1,4 +1,4 @@
-package com.chaibin.shopping.controllers.core.member;
+package com.chaibin.shopping.core.member;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Builder
 @Getter
-public class MemberRequest {
+public class MemberRequestDto {
 
     @NotBlank(message = "정상적인 아이디가 아닙니다.")
     String userId;
@@ -26,7 +26,7 @@ public class MemberRequest {
     @NotBlank(message = "주소가 존재하지 않습니다.")
     String address;
 
-    public MemberRequest(String userId, String password, String name, String phone, String address) {
+    public MemberRequestDto(String userId, String password, String name, String phone, String address) {
         this.userId = userId;
         this.password = password;
         this.name = name;

@@ -1,9 +1,9 @@
 package com.chaibin.shopping.controllers;
 
 import com.chaibin.shopping.common.StaticMember;
-import com.chaibin.shopping.controllers.core.member.MemberRequest;
-import com.chaibin.shopping.controllers.core.member.MemberResponse;
-import com.chaibin.shopping.model.Member;
+import com.chaibin.shopping.core.member.MemberRequestDto;
+import com.chaibin.shopping.core.member.MemberResponseDto;
+import com.chaibin.shopping.models.Member;
 import com.chaibin.shopping.services.MemberService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +16,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
-import org.springframework.restdocs.operation.preprocess.Preprocessors;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -65,7 +64,12 @@ class MemberControllerTest {
     @DisplayName("유저 정보 가져오기 테스트")
     void getMemberTest() throws Exception {
         Member member1 = StaticMember.MEMBER1;
-        MemberResponse respondedMember = member1.toMemberResponse();
+        MemberResponseDto respondedMember = MemberResponseDto.builder()
+                .userId(member1.getUserId())
+                .name(member1.getName())
+                .phone(member1.getPhone())
+                .address(member1.getAddress())
+                .build();
         String url = version + "/members";
 
         given(memberService.getMember(member1.getUserId())).willReturn(respondedMember);
@@ -89,7 +93,7 @@ class MemberControllerTest {
     @Test
     @DisplayName("회원가입 테스트")
     void registerMemberTest() throws Exception {
-        MemberRequest memberRequest = StaticMember.MEMBER_REQUEST1;
+        MemberRequestDto memberRequest = StaticMember.MEMBER_REQUEST1;
         Member member = StaticMember.MEMBER1;
         String jsonMember = mapper.writeValueAsString(memberRequest);
         String url = version + "/members";

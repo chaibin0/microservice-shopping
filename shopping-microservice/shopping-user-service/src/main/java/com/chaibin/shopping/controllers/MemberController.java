@@ -1,13 +1,10 @@
 package com.chaibin.shopping.controllers;
 
-import com.chaibin.shopping.controllers.core.member.MemberRequest;
-import com.chaibin.shopping.model.Member;
+import com.chaibin.shopping.core.member.MemberRequestDto;
 import com.chaibin.shopping.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
 
 @RestController
 @RequestMapping("v1/users")
@@ -27,7 +24,7 @@ public class MemberController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> registerMember(@RequestBody MemberRequest request) {
+    public ResponseEntity<?> registerMember(@RequestBody MemberRequestDto request) {
 
         memberService.registerMember(request);
         return ResponseEntity.created(null).body(null);

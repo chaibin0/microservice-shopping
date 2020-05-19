@@ -1,10 +1,7 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/shopping-store?serverTimezone=UTC&characterEncoding=UTF-8
-    username: root
-    password: root
-  jpa:
-    generate-ddl: true
-    hibernate:
-      ddl-auto: create-drop
+  data:
+    mongodb:
+      port: 27017
+      host: database-store
+      uri: mongodb://localhost/test
+      password: root
